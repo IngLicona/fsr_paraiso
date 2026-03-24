@@ -1,0 +1,709 @@
+
+/* ============ VARIABLES Y RESET ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-blue: #3b5998;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ============ HEADER Y NAVEGACIÓN ============ */
+.header {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 120px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+.btn-visitanos {
+    background-color: var(--accent-blue);
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-visitanos:hover {
+    background-color: #2d4373;
+    color: var(--white) !important;
+}
+
+/* ============ HERO SECTION ============ */
+
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: 60px;
+    color: var(--white);
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #2d4373;
+}
+
+.hero-verse {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ============ PROPÓSITO SECTION ============ */
+.proposito {
+    padding: 80px 20px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.proposito h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+.proposito-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 40px 30px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 50px;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.card p {
+    color: var(--dark-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.card .verse {
+    font-size: 12px;
+    margin-top: 15px;
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* ============ HORARIOS SECTION ============ */
+.horarios {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.horarios-content {
+    flex: 1;
+}
+
+.horarios-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.horarios-content > p {
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.horarios-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.horarios-list li {
+    padding: 12px 0;
+    color: var(--text-dark);
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #2d4373;
+}
+
+.horarios-img {
+    flex: 1;
+}
+
+.horarios-img img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============ EVENTOS SECTION ============ */
+.eventos {
+    padding: 80px 20px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.eventos h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.eventos > p {
+    color: var(--dark-gray);
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.evento-item {
+    position: relative;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+.evento-item:hover {
+    transform: scale(1.05);
+}
+
+.evento-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.evento-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.evento-info .fecha {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.evento-info .hora {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.evento-item h3,
+.evento-item p {
+    padding: 0 20px;
+}
+
+.evento-item h3 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.evento-item p {
+    font-size: 14px;
+    padding-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* ============ UBICACIÓN SECTION ============ */
+.ubicacion {
+    padding: 40px 20px;
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.ubicacion-map {
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.ubicacion-map i {
+    color: var(--accent-blue);
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo {
+    height: 120px;
+    width: auto;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #3498db;
+}
+
+.footer-social {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-social a {
+    color: var(--white);
+    font-size: 20px;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #3498db;
+}
+
+/* ============ RESPONSIVO ============ */
+
+/* TABLETS (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container-nav {
+        max-width: 100%;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .proposito-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .horarios {
+        padding: 60px 20px;
+        gap: 40px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MÓVILES Y TABLETS PEQUEÑAS (max 768px) */
+@media (max-width: 768px) {
+    /* HEADER Y NAVEGACIÓN */
+    .container-nav {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    .btn-visitanos {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        height: 400px;
+        padding: 20px;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    /* PROPÓSITO */
+    .proposito {
+        padding: 50px 20px;
+    }
+
+    .proposito h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .proposito-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    /* HORARIOS */
+    .horarios {
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 20px;
+    }
+
+    .horarios-content h2 {
+        font-size: 28px;
+    }
+
+    .horarios-list li {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    /* EVENTOS */
+    .eventos {
+        padding: 50px 20px;
+    }
+
+    .eventos h2 {
+        font-size: 28px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-item {
+        height: 300px;
+    }
+
+    /* FOOTER */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-nav {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-logo {
+        height: 50px;
+    }
+}
+
+/* MÓVILES PEQUEÑOS (max 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container-nav {
+        padding: 0 10px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    /* HERO */
+    .hero {
+        height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    /* PROPÓSITO */
+    .proposito {
+        padding: 40px 15px;
+    }
+
+    .proposito h2 {
+        font-size: 22px;
+    }
+
+    .card-icon {
+        font-size: 40px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    /* HORARIOS */
+    .horarios {
+        padding: 40px 15px;
+    }
+
+    .horarios-content h2 {
+        font-size: 22px;
+    }
+
+    /* EVENTOS */
+    .eventos {
+        padding: 40px 15px;
+    }
+
+    .eventos h2 {
+        font-size: 22px;
+    }
+
+    .evento-item img {
+        height: 180px;
+    }
+
+    .evento-item h3 {
+        font-size: 16px;
+    }
+
+    /* UBICACIÓN */
+    .ubicacion-map {
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    .footer-nav a {
+        font-size: 12px;
+    }
+
+    .footer-social a {
+        font-size: 18px;
+        margin: 0 10px;
+    }
+}
