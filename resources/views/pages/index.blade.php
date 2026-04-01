@@ -95,12 +95,5 @@
         </div>
     </section>
 
-    <!-- UBICACIÓN SECTION -->
-    <section class="ubicacion">
-        <div class="ubicacion-map">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Av Principal #1:23, Ciudad, Pías.</p>
-        </div>
-    </section>
 
 @endsection
