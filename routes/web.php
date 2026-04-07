@@ -54,7 +54,6 @@ Route::post('/contacto', function () {
         'telefono' => 'nullable|string|max:20',
         'asunto' => 'required|string|max:255',
         'mensaje' => 'required|string|max:5000',
-        'privacidad' => 'accepted',
     ]);
 
     // Aquí puedes guardar el mensaje en la base de datos o enviarlo por email
