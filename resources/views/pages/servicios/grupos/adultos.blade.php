@@ -61,6 +61,7 @@
                             <p><strong>📅 Reunión:</strong> {{ $grupo->reunion }}</p>
                             <p><strong>👥 Integrantes:</strong> Grupo activo</p>
                             <p><strong>🎯 Edad:</strong> {{ $grupo->edad ? $grupo->edad . ' años' : 'Variada' }}</p>
+                            <p><strong>👤 Tipo:</strong> Adultos</p>
                         </div>
 
                         <div class="ubicacion-contacto">

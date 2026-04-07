@@ -15,6 +15,14 @@ class GruposHogaresTable
     {
         return $table
             ->columns([
+                TextColumn::make('tipo_hogar')
+                    ->label('Tipo')
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'jovenes' => 'Jóvenes',
+                        'adultos' => 'Adultos',
+                        default => $state,
+                    })
+                    ->badge(),
                 TextColumn::make('nombre_grupo_hogar')
                     ->label('Nombre Grupo')
                     ->searchable(),
@@ -22,7 +30,8 @@ class GruposHogaresTable
                     ->searchable(),
                 TextColumn::make('direccion'),
                 TextColumn::make('reunion'),
-                TextColumn::make('edad'),
+                TextColumn::make('edad')
+                    ->label('Rango Edad'),
                 TextColumn::make('contacto'),
             ])
             ->filters([
