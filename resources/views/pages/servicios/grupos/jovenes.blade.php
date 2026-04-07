@@ -49,89 +49,29 @@
             <h2>Grupos y Ubicaciones</h2>
             
             <div class="grupo-ubicacion-grid">
-                <!-- GRUPO 1 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Vision Joven"</h3>
-                        <span class="grupo-lider">Lider: Ronald García</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Calle Principal 123, Sector Centro</p>
-                        <p><strong>📅 Reunión:</strong> Viernes 7:00 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 15 - 20 jóvenes</p>
-                        <p><strong>🎯 Edad:</strong> 16 - 25 años</p>
-                    </div>
+                @forelse($grupos as $grupo)
+                    <div class="grupo-ubicacion-card">
+                        <div class="ubicacion-header">
+                            <h3>{{ $grupo->nombre_grupo_hogar }}</h3>
+                            <span class="grupo-lider">Líder: {{ $grupo->lider }}</span>
+                        </div>
+                        
+                        <div class="ubicacion-info">
+                            <p><strong>📍 Dirección:</strong> {{ $grupo->direccion }}</p>
+                            <p><strong>📅 Reunión:</strong> {{ $grupo->reunion }}</p>
+                            <p><strong>👥 Integrantes:</strong> Grupo activo</p>
+                            <p><strong>🎯 Edad:</strong> {{ $grupo->edad ? $grupo->edad . ' años' : 'Variada' }}</p>
+                        </div>
 
-                    <div class="ubicacion-actividades">
-                        <h4>Actividades Recientes:</h4>
-                        <ul>
-                            <li>✅ Retiro Espiritual en Montañas</li>
-                            <li>✅ Proyecto Comunitario: Casa de Ancianos</li>
-                            <li>✅ Noche de Cine Cristiano</li>
-                        </ul>
+                        <div class="ubicacion-contacto">
+                            <p><strong>Contacto:</strong> {{ $grupo->contacto }}</p>
+                        </div>
                     </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 456-7890</p>
+                @empty
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <p style="color: #999; font-size: 1.1rem;">No hay grupos disponibles en este momento.</p>
                     </div>
-                </div>
-
-                <!-- GRUPO 2 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Fe en Acción"</h3>
-                        <span class="grupo-lider">Lider: Valentina Morales</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Avenida Secundaria 456, Sector Norte</p>
-                        <p><strong>📅 Reunión:</strong> Martes 6:30 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 12 - 18 jóvenes</p>
-                        <p><strong>🎯 Edad:</strong> 18 - 30 años</p>
-                    </div>
-
-                    <div class="ubicacion-actividades">
-                        <h4>Actividades Recientes:</h4>
-                        <ul>
-                            <li>✅ Campaña de Limpieza Comunitaria</li>
-                            <li>✅ Estudio de Liderazgo</li>
-                            <li>✅ Confraternidad Deportiva</li>
-                        </ul>
-                    </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 456-7891</p>
-                    </div>
-                </div>
-
-                <!-- GRUPO 3 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Discípulos del Reino"</h3>
-                        <span class="grupo-lider">Lider: Jonathan López</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Barrio Sur, Casa 789</p>
-                        <p><strong>📅 Reunión:</strong> Jueves 7:00 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 10 - 16 jóvenes</p>
-                        <p><strong>🎯 Edad:</strong> 15 - 24 años</p>
-                    </div>
-
-                    <div class="ubicacion-actividades">
-                        <h4>Actividades Recientes:</h4>
-                        <ul>
-                            <li>✅ Seminario: "Mi Propósito en Dios"</li>
-                            <li>✅ Voluntariado en Albergue</li>
-                            <li>✅ Adoración en Grupo</li>
-                        </ul>
-                    </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 456-7892</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

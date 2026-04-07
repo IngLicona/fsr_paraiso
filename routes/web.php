@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventosController;
+use App\Http\Controllers\GruposController;
 
 // Página de inicio
 Route::get('/', function () {
@@ -30,17 +32,12 @@ Route::get('/servicios/bienvenida', function () {
 })->name('services.bienvenida');
 
 // Grupos de Hogares
-Route::get('/servicios/grupos-jovenes', function () {
-    return view('pages.servicios.grupos.jovenes');
-})->name('services.grupos-jovenes');
+Route::get('/servicios/grupos-jovenes', [GruposController::class, 'jovenes'])->name('services.grupos-jovenes');
 
-Route::get('/servicios/grupos-adultos', function () {
-    return view('pages.servicios.grupos.adultos');
-})->name('services.grupos-adultos');
+Route::get('/servicios/grupos-adultos', [GruposController::class, 'adultos'])->name('services.grupos-adultos');
 
-Route::get('/eventos', function () {
-    return view('pages.eventos');
-})->name('events');
+// Eventos
+Route::get('/eventos', [EventosController::class, 'index'])->name('events');
 
 Route::get('/contacto', function () {
     return view('pages.contacto');

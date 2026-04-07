@@ -49,117 +49,29 @@
             <h2>Grupos por Zona Geográfica</h2>
             
             <div class="grupo-ubicacion-grid">
-                <!-- GRUPO 1 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Fundamento Sólido"</h3>
-                        <span class="grupo-lider">Lider: Pbro. Pedro Sanchez</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Calle Principal 123, Sector Centro</p>
-                        <p><strong>📅 Reunión:</strong> Martes 7:00 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 20 - 25 personas</p>
-                        <p><strong>🎯 Edad:</strong> 35 - 55 años</p>
-                    </div>
+                @forelse($grupos as $grupo)
+                    <div class="grupo-ubicacion-card">
+                        <div class="ubicacion-header">
+                            <h3>{{ $grupo->nombre_grupo_hogar }}</h3>
+                            <span class="grupo-lider">Líder: {{ $grupo->lider }}</span>
+                        </div>
+                        
+                        <div class="ubicacion-info">
+                            <p><strong>📍 Dirección:</strong> {{ $grupo->direccion }}</p>
+                            <p><strong>📅 Reunión:</strong> {{ $grupo->reunion }}</p>
+                            <p><strong>👥 Integrantes:</strong> Grupo activo</p>
+                            <p><strong>🎯 Edad:</strong> {{ $grupo->edad ? $grupo->edad . ' años' : 'Variada' }}</p>
+                        </div>
 
-                    <div class="ubicacion-actividades">
-                        <h4>Enfoque:</h4>
-                        <ul>
-                            <li>✅ Matrimonios fortalecidos</li>
-                            <li>✅ Crianza de hijos en fe</li>
-                            <li>✅ Servicio comunitario</li>
-                        </ul>
+                        <div class="ubicacion-contacto">
+                            <p><strong>Contacto:</strong> {{ $grupo->contacto }}</p>
+                        </div>
                     </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 567-8901</p>
+                @empty
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <p style="color: #999; font-size: 1.1rem;">No hay grupos disponibles en este momento.</p>
                     </div>
-                </div>
-
-                <!-- GRUPO 2 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Nuevos Horizontes"</h3>
-                        <span class="grupo-lider">Lider: Dra. Teresa Gómez</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Avenida Secundaria 456, Sector Norte</p>
-                        <p><strong>📅 Reunión:</strong> Jueves 6:30 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 15 - 20 personas</p>
-                        <p><strong>🎯 Edad:</strong> 40 - 65 años</p>
-                    </div>
-
-                    <div class="ubicacion-actividades">
-                        <h4>Enfoque:</h4>
-                        <ul>
-                            <li>✅ Sabiduría en decisiones de vida</li>
-                            <li>✅ Legado espiritual familiar</li>
-                            <li>✅ Ministerio intergeneracional</li>
-                        </ul>
-                    </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 567-8902</p>
-                    </div>
-                </div>
-
-                <!-- GRUPO 3 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Luz del Evangelio"</h3>
-                        <span class="grupo-lider">Lider: Pastor José Ramírez</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Barrio Sur, Casa 789</p>
-                        <p><strong>📅 Reunión:</strong> Viernes 7:00 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 18 - 22 personas</p>
-                        <p><strong>🎯 Edad:</strong> 45 - 70 años</p>
-                    </div>
-
-                    <div class="ubicacion-actividades">
-                        <h4>Enfoque:</h4>
-                        <ul>
-                            <li>✅ Evangelismo a la comunidad</li>
-                            <li>✅ Discipulado profundo</li>
-                            <li>✅ Testimonios vivos</li>
-                        </ul>
-                    </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 567-8903</p>
-                    </div>
-                </div>
-
-                <!-- GRUPO 4 -->
-                <div class="grupo-ubicacion-card">
-                    <div class="ubicacion-header">
-                        <h3>Grupo "Padres en Fe"</h3>
-                        <span class="grupo-lider">Lider: Consuelo Martínez</span>
-                    </div>
-                    
-                    <div class="ubicacion-info">
-                        <p><strong>📍 Dirección:</strong> Avenida Principal 234, Sector Este</p>
-                        <p><strong>📅 Reunión:</strong> Miércoles 7:30 PM</p>
-                        <p><strong>👥 Integrantes:</strong> 12 - 18 personas</p>
-                        <p><strong>🎯 Edad:</strong> 35 - 55 años</p>
-                    </div>
-
-                    <div class="ubicacion-actividades">
-                        <h4>Enfoque:</h4>
-                        <ul>
-                            <li>✅ Paternidad y maternidad cristiana</li>
-                            <li>✅ Comunicación familiar</li>
-                            <li>✅ Educación de valores</li>
-                        </ul>
-                    </div>
-
-                    <div class="ubicacion-contacto">
-                        <p><strong>Contacto:</strong> (555) 567-8904</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

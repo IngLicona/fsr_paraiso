@@ -15,6 +15,10 @@ class Post extends Model
         'estado',
     ];
 
+    protected $casts = [
+        'fecha_publicacion' => 'date',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
