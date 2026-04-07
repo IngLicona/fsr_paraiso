@@ -1,0 +1,137 @@
+/* Personalización de colores para Filament - FSR PARAISO */
+
+:root {
+    /* Colores principales de la página */
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-blue: #3b5998;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
+/* Variables CSS de Filament para personalizar colores */
+.fi-body {
+    --fi-color-primary-50: #ecf0f1;
+    --fi-color-primary-100: #d5dbdb;
+    --fi-color-primary-200: #aeb6b7;
+    --fi-color-primary-300: #879293;
+    --fi-color-primary-400: #607070;
+    --fi-color-primary-500: #2c3e50; /* Color primario principal */
+    --fi-color-primary-600: #283848;
+    --fi-color-primary-700: #1f2d3a;
+    --fi-color-primary-800: #1a2530;
+    --fi-color-primary-900: #151e26;
+    --fi-color-primary-950: #0f161c;
+}
+
+/* Botones primarios */
+.fi-btn-primary {
+    background-color: var(--fi-color-primary-500) !important;
+    border-color: var(--fi-color-primary-500) !important;
+}
+
+.fi-btn-primary:hover {
+    background-color: var(--fi-color-primary-600) !important;
+    border-color: var(--fi-color-primary-600) !important;
+}
+
+/* Enlaces y elementos activos */
+.fi-sidebar-nav-item-active {
+    background-color: var(--fi-color-primary-100) !important;
+    border-color: var(--fi-color-primary-500) !important;
+}
+
+.fi-sidebar-nav-item-active a {
+    color: var(--fi-color-primary-700) !important;
+}
+
+/* Header del panel */
+.fi-topbar {
+    background-color: var(--primary-color) !important;
+}
+
+/* Logo y branding */
+.fi-logo {
+    color: var(--white) !important;
+}
+
+/* Navegación lateral */
+.fi-sidebar {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Elementos de formulario */
+.fi-input:focus,
+.fi-select:focus {
+    border-color: var(--fi-color-primary-500) !important;
+    box-shadow: 0 0 0 1px var(--fi-color-primary-500) !important;
+}
+
+/* Badges y estados */
+.fi-badge {
+    background-color: var(--accent-blue) !important;
+}
+
+/* Tablas */
+.fi-table th {
+    background-color: var(--light-gray) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Cards y contenedores */
+.fi-card {
+    border-color: var(--border-color) !important;
+}
+
+/* Alertas y notificaciones */
+.fi-notification-success {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+}
+
+.fi-notification-error {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #721c24 !important;
+}
+
+/* Modales y overlays */
+.fi-modal {
+    border-color: var(--border-color) !important;
+}
+
+/* Dropdowns */
+.fi-dropdown-list {
+    border-color: var(--border-color) !important;
+}
+
+/* Paginación */
+.fi-pagination-item-active {
+    background-color: var(--fi-color-primary-500) !important;
+    border-color: var(--fi-color-primary-500) !important;
+}
+
+/* Loading states */
+.fi-loading-indicator {
+    color: var(--fi-color-primary-500) !important;
+}
+
+/* Stats overview widgets */
+.fi-widget-stats-overview-stat {
+    background-color: var(--light-gray) !important;
+}
+
+/* Breadcrumbs */
+.fi-breadcrumbs {
+    color: var(--text-dark) !important;
+}
+
+/* Footer */
+.fi-footer {
+    background-color: var(--secondary-color) !important;
+    color: var(--white) !important;
+}
