@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\GruposController;
+use Illuminate\Support\Facades\Auth;
+
 
 // Página de inicio
 Route::get('/', function () {
@@ -61,4 +63,5 @@ Route::post('/contacto', function () {
 Route::get('/visitanos', function () {
     return view('pages.visitanos');
 })->name('visit');
+
 
