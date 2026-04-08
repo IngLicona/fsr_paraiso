@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\GruposController;
+use App\Http\Controllers\MensajeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -65,3 +66,4 @@ Route::get('/visitanos', function () {
 })->name('visit');
 
 
+Route::post('/contacto', [MensajeController::class, 'store']);

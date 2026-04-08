@@ -116,8 +116,8 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="+1 (555) 123-4567">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+1 (555) 123-4567">
                         </div>
                         <div class="form-group">
                             <label for="asunto">Asunto *</label>
