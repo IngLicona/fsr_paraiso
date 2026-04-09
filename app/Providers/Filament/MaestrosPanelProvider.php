@@ -19,25 +19,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class MaestrosPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
-            ->login()
-            ->homeUrl(function () {
-                $user = auth()->user();
-
-                if ($user->hasRole('admin')) {
-                    return url('/admin');
-                }
-
-                return url('/');
-            })
-            
+            ->id('maestros')
+            ->path('maestros')
             ->colors([
                 'primary' => '#2c3e50', // Color primario de la página
                 'secondary' => '#34495e',
@@ -47,12 +35,13 @@ class AdminPanelProvider extends PanelProvider
                 'warning' => '#f39c12',
                 'info' => '#3498db',
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            
+            ->discoverResources(in: app_path('Filament/Maestros/Resources'), for: 'App\Filament\Maestros\Resources')
+            ->discoverPages(in: app_path('Filament/Maestros/Pages'), for: 'App\Filament\Maestros\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Maestros/Widgets'), for: 'App\Filament\Maestros\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
@@ -67,12 +56,10 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                \App\Http\Middleware\ForceLogoutRedirect::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
-                \Filament\Http\Middleware\Authenticate::class,
-                \App\Http\Middleware\CheckAdmin::class,
+                \App\Http\Middleware\CheckMaestro::class,
             ]);
     }
 }

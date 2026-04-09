@@ -71,6 +71,7 @@
 <div class="card">
 
     <h2>Iniciar sesión</h2>
+    <input type="image"src="{{ asset('images/logo.png') }}" class="logo" alt="logo" style="display: block; margin: 0 auto 20px; width: 100px; height: 100px;">
 
     @if($errors->any())
         <div class="error">{{ $errors->first() }}</div>

@@ -31,7 +31,7 @@ class LoginController extends Controller
             }
 
             if ($user->hasRole('maestro')) {
-                return redirect('/maestro');
+                return redirect('/maestros');
             }
 
             if ($user->hasRole('alumno')) {
