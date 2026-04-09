@@ -27,7 +27,7 @@
                 <li><a href="/eventos">Eventos</a></li>
                 <li><a href="/contacto">Contacto</a></li>
                 <li><a href="/visitanos" class="btn-visitanos">Visítanos</a></li>
-                <li><a href="/admin" class="btn-login" target="_blank">Iniciar Sesión</a></li>
+                <li><a href="/login" class="btn-login" target="_blank">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </div>

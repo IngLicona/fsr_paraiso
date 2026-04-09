@@ -28,6 +28,20 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->homeUrl(function () {
+                $user = auth()->user();
+
+                if ($user->hasRole('admin')) {
+                    return url('/admin');
+                }
+
+                if ($user->hasRole('maestro')) {
+                    return url('/maestro');
+                }
+
+                return url('/');
+            })
+            
             ->colors([
                 'primary' => '#2c3e50', // Color primario de la página
                 'secondary' => '#34495e',
@@ -57,9 +71,11 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \App\Http\Middleware\ForceLogoutRedirect::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
+                \Filament\Http\Middleware\Authenticate::class,
                 \App\Http\Middleware\CheckAdmin::class,
             ]);
     }

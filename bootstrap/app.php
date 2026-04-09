@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+        'auth.custom' => \App\Http\Middleware\Authenticate::class,
+    ]);
+    $middleware->alias([
+    'force.logout' => \App\Http\Middleware\ForceLogoutRedirect::class,
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

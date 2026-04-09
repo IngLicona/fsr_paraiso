@@ -5,6 +5,17 @@ use App\Http\Controllers\EventosController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\MensajeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('/login', [LoginController::class, 'show'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/admin/login', function () {
+    return redirect('/login');
+});
+Route::get('/admin/logout', function () {
+    return redirect('/login');
+});
 
 
 // Página de inicio
