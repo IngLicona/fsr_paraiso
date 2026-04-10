@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\Personas\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,31 +9,29 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UsersTable
+class PersonasTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label('Nombre')
+                TextColumn::make('grupoHogar.nombre_grupo_hogar')
+                    ->label('Grupo Hogar')
+                    ->sortable(),
+                TextColumn::make('generacion.nombre')
+                    ->label('Generación')
+                    ->sortable(),
+                TextColumn::make('nombre')
                     ->searchable(),
-                TextColumn::make('email')
-                    ->label('Correo')
+                TextColumn::make('paterno')
                     ->searchable(),
-                TextColumn::make('roles.name')
-                    ->label('Rol')
-                    ->badge()
-                    ->color(fn ($state) => match ($state) {
-                        'admin' => 'success',
-                        'maestro' => 'info',
-                        'alumno' => 'warning',
-                        default => 'gray',
-                    }),
-                TextColumn::make('persona.nombre')
-                    ->label('Persona')
+                TextColumn::make('materno')
                     ->searchable(),
-                    
+                TextColumn::make('telefono')
+                    ->searchable(),
+                TextColumn::make('fecha_nacimiento')
+                    ->date()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

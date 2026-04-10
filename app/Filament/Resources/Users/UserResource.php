@@ -53,6 +53,13 @@ class UserResource extends Resource
                     ->options(Role::pluck('name', 'name'))
                     ->formatStateUsing(fn ($state, $record) => $record?->roles->first()?->name)
                     ->required(),
+
+                    Select::make('persona_id')
+                    ->label('Persona')
+                    ->relationship('persona', 'nombre')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
     public static function infolist(Schema $schema): Schema

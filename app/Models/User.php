@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->hasRole('admin');
     }
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'persona_id');
+    }
 }

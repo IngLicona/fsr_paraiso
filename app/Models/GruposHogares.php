@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class GruposHogares extends Model
 {
 
+    protected $primaryKey = 'id'; 
     protected $table = 'grupos_hogares'; 
 
     protected $fillable = [
