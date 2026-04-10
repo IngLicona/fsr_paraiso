@@ -2,13 +2,13 @@
 
 namespace App\Filament\Maestros\Resources\Tareas\Pages;
 
-use App\Filament\Maestros\Resources\Tareas\TareasResource;
+use App\Filament\Maestros\Resources\Tareas\TareaResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewTareas extends ViewRecord
+class ViewTarea extends ViewRecord
 {
-    protected static string $resource = TareasResource::class;
+    protected static string $resource = TareaResource::class;
 
     protected function getHeaderActions(): array
     {

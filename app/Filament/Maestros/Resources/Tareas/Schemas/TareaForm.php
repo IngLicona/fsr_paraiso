@@ -4,7 +4,7 @@ namespace App\Filament\Maestros\Resources\Tareas\Schemas;
 
 use Filament\Schemas\Schema;
 
-class TareasInfolist
+class TareaForm
 {
     public static function configure(Schema $schema): Schema
     {

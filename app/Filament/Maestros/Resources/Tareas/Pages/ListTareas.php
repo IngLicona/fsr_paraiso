@@ -2,13 +2,13 @@
 
 namespace App\Filament\Maestros\Resources\Tareas\Pages;
 
-use App\Filament\Maestros\Resources\Tareas\TareasResource;
+use App\Filament\Maestros\Resources\Tareas\TareaResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListTareas extends ListRecords
 {
-    protected static string $resource = TareasResource::class;
+    protected static string $resource = TareaResource::class;
 
     protected function getHeaderActions(): array
     {
