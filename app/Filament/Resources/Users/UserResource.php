@@ -9,6 +9,7 @@ use App\Filament\Resources\Users\Pages\ViewUser;
 use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Resources\Users\Tables\UsersTable;
+use App\Models\Persona;
 use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -18,6 +19,8 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
 use Spatie\Permission\Models\Role;
 use Filament\Forms\Components\TextInput;
+
+use function Pest\Laravel\get;
 
 class UserResource extends Resource
 {
@@ -42,11 +45,11 @@ class UserResource extends Resource
                     ]),
 
                 TextInput::make('password')
-    ->password()
-    ->dehydrateStateUsing(fn ($state) => bcrypt($state))  
-    ->dehydrated(fn ($state) => filled($state)) 
-    ->required(fn ($context) => $context === 'create') 
-    ->label('Contraseña'),
+                    ->password()
+                    ->dehydrateStateUsing(fn ($state) => bcrypt($state))  
+                    ->dehydrated(fn ($state) => filled($state)) 
+                    ->required(fn ($context) => $context === 'create') 
+                    ->label('Contraseña'),
 
                 Select::make('role')
                     ->label('Rol')
@@ -56,9 +59,14 @@ class UserResource extends Resource
 
                     Select::make('persona_id')
                     ->label('Persona')
-                    ->relationship('persona', 'nombre')
+                    ->options(
+                        Persona::all()->mapWithKeys(function ($persona) {
+                            return [
+                                $persona->id => $persona->nombre_completo
+                            ];
+                        })
+                    )
                     ->searchable()
-                    ->preload()
                     ->required(),
             ]);
     }
