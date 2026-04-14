@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Entrega;
+use App\Models\Generacion;
 
 class Tarea extends Model
 {
@@ -25,4 +27,8 @@ public function generacion()
     {
         return $this->belongsTo(Generacion::class, 'generaciones_id');
     }
+    public function entregas()
+{
+    return $this->hasMany(Entrega::class, 'tareas_id');
+}
 }
