@@ -58,16 +58,20 @@ class UserResource extends Resource
                     ->required(),
 
                     Select::make('persona_id')
-                    ->label('Persona')
-                    ->options(
-                        Persona::all()->mapWithKeys(function ($persona) {
-                            return [
-                                $persona->id => $persona->nombre_completo
-                            ];
-                        })
-                    )
-                    ->searchable()
-                    ->required(),
+    ->label('Persona')
+    ->options(function ($record) {
+        return Persona::query()
+            ->whereDoesntHave('user')
+            ->orWhere('id', $record?->persona_id)
+            ->get()
+            ->mapWithKeys(function ($persona) {
+                return [
+                    $persona->id => $persona->nombre_completo
+                ];
+            });
+    })
+    ->searchable()
+    ->required(),
             ]);
     }
     public static function infolist(Schema $schema): Schema

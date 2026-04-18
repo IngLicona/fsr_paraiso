@@ -31,11 +31,11 @@ class UsersTable
                         default => 'gray',
                     }),
                 TextColumn::make('persona.nombre')
-    ->label('Persona')
-    ->formatStateUsing(fn ($record) => 
-        $record->persona?->nombre_completo ?? '-'
-    )
-    ->searchable(),
+                    ->label('Persona')
+                    ->formatStateUsing(fn ($record) => 
+                        $record->persona?->nombre_completo ?? '-'
+                    )
+                    ->searchable(),
                     
                 TextColumn::make('created_at')
                     ->dateTime()
