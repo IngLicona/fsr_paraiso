@@ -12,10 +12,11 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/admin/login', function () {
     return redirect('/login');
-});
+})->name('filament.admin.auth.login');
+
 Route::get('/admin/logout', function () {
     return redirect('/login');
-});
+})->name('filament.admin.auth.logout');
 
 
 // Página de inicio

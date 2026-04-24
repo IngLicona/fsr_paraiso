@@ -4,7 +4,8 @@
 
 @php
     $src = filament()->getUserAvatarUrl($user);
-    $alt = __('filament-panels::layout.avatar.alt', ['name' => filament()->getUserName($user)]);
+    $altName = $user->persona?->nombre_completo ?? filament()->getUserName($user);
+    $alt = __('filament-panels::layout.avatar.alt', ['name' => $altName]);
 @endphp
 
 <x-filament::avatar

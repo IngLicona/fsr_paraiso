@@ -16,7 +16,7 @@
             </h2>
 
             <p class="fi-account-widget-user-name">
-                {{ filament()->getUserName($user) }}
+                {{ $user->persona?->nombre_completo ?? filament()->getUserName($user) }}
             </p>
         </div>
 

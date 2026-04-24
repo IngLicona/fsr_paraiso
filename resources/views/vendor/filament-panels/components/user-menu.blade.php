@@ -57,13 +57,13 @@
             >
                 <x-filament-panels::avatar.user :user="$user" loading="lazy" />
 
-                <span
+                    <span
                     @if ($isSidebarCollapsibleOnDesktop)
                         x-show="$store.sidebar.isOpen"
                     @endif
                     class="fi-user-menu-trigger-text"
                 >
-                    {{ filament()->getUserName($user) }}
+                    {{ $user->persona?->nombre_completo ?? filament()->getUserName($user) }}
                 </span>
 
                 {{
